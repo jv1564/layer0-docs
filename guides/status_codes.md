@@ -16,7 +16,7 @@ If the error is generated in {{ PRODUCT_NAME }} itself, the platform generates a
 | 535 | Unknown Project | The HTTP header `host` is missing or does not match any {{ PRODUCT_NAME }} deployment. Check your requesting URL and your project config. |
 | 536 | Reserved | Not used by {{ PRODUCT_NAME }} at this time. |
 | 537 | DNS Resolution Error | Failed to resolve the host name through DNS, which might indicate a problem with your DNS provider or incorrectly configured domain name. |
-| 538 | Project Request Loop | The {{ PRODUCT_NAME }} project exceeded the maximum level (4) of nested {{ PRODUCT_NAME }} requests. “Nested” means an {{ PRODUCT_NAME }} site is the upstream of itself or of another {{ PRODUCT_NAME }} site. |
+| 538 | Project Request Loop | The {{ PRODUCT_NAME }} project exceeded the maximum level (4) of nested {{ PRODUCT_NAME }} requests. _Nested_ means a {{ PRODUCT_NAME }} site is the upstream of itself or of another {{ PRODUCT_NAME }} site. |
 | 539 | Project Timeout | Your project's serverless code did not respond on time, either due to slow upstreams or to badly handled asynchronous requests in code (e.g. missing `await` or call to `callback`). Use [server logs](/guides/logs#section_server_logs) and [performance profiling](/guides/performance) to debug. |
 | 540 | Out of Memory | Your project's serverless code caused an out-of-memory situation. Use [server logs](/guides/logs#section_server_logs) to debug and lower the memory use. |
 | 541 | {{ PRODUCT_NAME }} Out of Workers | The traffic was so high that the request could not be scheduled for processing within the scheduling timeout. Please contact [support](/guides/support) to upgrade your account. |
@@ -27,7 +27,7 @@ If the error is generated in {{ PRODUCT_NAME }} itself, the platform generates a
 
 Obviously, your project can set status codes of their own, which may sometimes match codes above. We encourage you to avoid setting your own status code so as to lower troubleshooting overhead and other issues.
 
-## Standard status codes used by {{ PRODUCT_NAME }} itself
+## Standard Status Codes used by {{ PRODUCT_NAME }} Itself
 
 {{ PRODUCT_NAME }} also issues these standard response codes:
 
