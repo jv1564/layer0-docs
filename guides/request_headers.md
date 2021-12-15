@@ -2,15 +2,15 @@
 
 This guide covers the headers that {{ PRODUCT_NAME }} injects into requests making them visible to your server code.
 
-## General headers
+## General Headers
 
-- `x-request-id`: unique request ID on {{ PRODUCT_NAME }} which may optinally be provided by you when issuing the requests to {{ PRODUCT_NAME }}
+- `x-request-id`: unique request ID on {{ PRODUCT_NAME }} which may optionally be provided by you when issuing the requests to {{ PRODUCT_NAME }}
 - `{{ HEADER_PREFIX }}-client-ip`: client IP from which the request originated _or_ first IP in `x-forwarded-for` is already present (which may happen when [{{ PRODUCT_NAME }} is behind another CDN](third_party_cdns)).
 - `{{ HEADER_PREFIX }}-destination`: the routing destination as determined by traffic splitting rules if any; the name of the destinations are taken from {{ PRODUCT_NAME }} router code and if not specified then default is `default`
 - `{{ HEADER_PREFIX }}-original-qs`: contains the original query string if [custom caching](caching#section_customizing_the_cache_key) rules exclude query strings for the matching route; otherwise not set
 - `{{ HEADER_PREFIX }}-protocol`: the protocol on which the connection to your site has been established; it can either be `https` or `http`; see more details [here](security#section_ssl)
 
-## User agent headers
+## User Agent Headers
 
 User agent headers are headers that {{ PRODUCT_NAME }} derives by analyzing the received `user-agent` request header.
 
@@ -21,7 +21,7 @@ User agent headers are headers that {{ PRODUCT_NAME }} derives by analyzing the 
 
 These values are provided as best effort as user agent, especially adversarial ones, can control the values by which we determine the values above.
 
-## Geolocation headers
+## Geolocation Headers
 
 Geolocation headers contain the geographical information about the provenance of the request. They are based on the IP of the actual request or, if overriding need is presented, on the content of `{{ HEADER_PREFIX }}-client-ip` request header.
 
@@ -33,6 +33,6 @@ Geolocation headers contain the geographical information about the provenance of
 
 These values are provided as best effort as {{ PRODUCT_NAME }} cannot guarantee that client IP to geographical location is always accurate.
 
-## Static prerendering headers
+## Static Prerendering Headers
 
 - `{{ HEADER_PREFIX }}-preload`: Will be "1" if the request originated from [Static Prerendering](/guides/static_prerendering). Otherwise this header will not be present.
