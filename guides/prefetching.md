@@ -38,7 +38,7 @@ import install from '{{ PACKAGE_NAME }}/prefetch/window/install'
 install()
 ```
 
-## Prefetching a URL
+## Prefetch a URL
 
 To prefetch a URL, call the `prefetch` function from `{{ PACKAGE_NAME }}/prefetch/window`:
 
@@ -68,7 +68,7 @@ function MyComponent() {
 
 By default, `Prefetch` will fetch and cache the URL in the link's `href` attribute. If you have a single page app, you most likely want to prefetch an API call for the page rather than the page's HTML. The example above shows you how to set the `url` property to control which URL is prefetched.
 
-If you're using Next.js, the `Prefetch` component assumes you're using `getServerSideProps` and will prefetch the corresponding URL unless your specify a `url` prop. The `Prefetch` component should be placed between Next's `<Link>` and the `<a>` element:
+If you're using Next.js, the `Prefetch` component assumes you're using `getServerSideProps` and will prefetch the corresponding URL unless you specify a `url` prop. The `Prefetch` component should be placed between Next's `<Link>` and the `<a>` element:
 
 ```js
 import Link from 'next/link'
@@ -145,9 +145,9 @@ new Prefetcher({
 })
 ```
 
-The `DeepFetchPlugin` can parse both HTML and JSON documents to extract the page assets that must be deep fetched. For {{ PRODUCT_NAME }} projects that are headless (i.e. the front end communicates with the backend through an API), you'll typically use the JSON option. However if the backend and front-end endpoints are communicating using HTML responses then you'll want to use the HTML option. Note that you can mix both HTML and JSON configuration objects in the an array passed to the `DeepFetchPlugin`.
+The `DeepFetchPlugin` can parse both HTML and JSON documents to extract the page assets that must be deep fetched. For {{ PRODUCT_NAME }} projects that are headless (i.e. the front end communicates with the backend through an API), you'll typically use the JSON option. However if the backend and front-end endpoints are communicating using HTML responses then you'll want to use the HTML option. Note that you can mix both HTML and JSON configuration objects in an array passed to the `DeepFetchPlugin`.
 
-### Deep fetching URLs in JSON responses
+### Deep Fetching URLs in JSON Responses
 
 For JSON responses, you'll pass the `DeepFetchPlugin` an array of [DeepFetchJsonConfig interface]({{ DOCS_URL }}/docs/api/prefetch/interfaces/_sw_deepfetchplugin_.deepfetchjsonconfig.html) objects. These `DeepFetchJsonConfig` objects describe the asset URLs in the JSON response that should be prefetched. For example, the snippet below finds product images to deep fetch for a category page response:
 
@@ -170,7 +170,7 @@ new DeepFetchPlugin([
 
 The `jsonQuery` syntax is provided by the [json-query](https://github.com/auditassistant/json-query) library. You can test your JSON queries using their [JSON-query Tester Sandbox](https://maxleiko.github.io/json-query-tester/).
 
-### Deep Fetching for HTML documents
+### Deep Fetching for HTML Documents
 
 To deep fetch HTML documents, pass the plugin objects that match the [DeepFetchHtmlConfig interface]({{ DOCS_URL }}/docs/api/prefetch/interfaces/_sw_deepfetchplugin_.deepfetchhtmlconfig.html) and describe which HTML elements need to be prefetched via CSS selectors.
 
@@ -194,9 +194,9 @@ new Prefetcher({
 })
 ```
 
-#### Computing the URL to be prefetched
+#### Compute the URL to be Prefetched
 
-In the example above the `img` element's `src` attribute contains URL that needs to be prefetched. Sometimes finding the URL to prefetch is not so straightforward. For example, apps sometimes use JavaScript to compute the URL for responsive images based on the user's device size. In such cases you can provide a `callback` function which will be passed all matching elements and decide what URLs to prefetch. Here is an example:
+In the example above the `img` element's `src` attribute contains the URL that needs to be prefetched. Sometimes finding the URL to prefetch is not so straightforward. For example, apps sometimes use JavaScript to compute the URL for responsive images based on the user's device size. In such cases you can provide a `callback` function which will be passed all matching elements and decide what URLs to prefetch. Here is an example:
 
 ```typescript
 import { Prefetcher, prefetch } from '{{ PACKAGE_NAME }}/prefetch/sw'
@@ -232,7 +232,7 @@ function deepFetchResponsiveImages({ $el, el, $ }: DeepFetchCallbackParam) {
 }
 ```
 
-## Using {{ PRODUCT_NAME }} for Prefetching Only
+## Use {{ PRODUCT_NAME }} for Prefetching Only
 
 If you have an existing site already in production, it is possible to prefetch from {{ PRODUCT_NAME }} while still serving the site from the existing CDN.
 
@@ -373,7 +373,7 @@ export default () => ({
 })
 ```
 
-The `createHttpLink` function accepts all of the options [documented here](https://www.apollographql.com/docs/link/links/http/#options) and automatically
+The `createHttpLink` function accepts all of [these options](https://www.apollographql.com/docs/link/links/http/#options) and automatically
 uses GET requests for all queries so that they can be cached at the edge and prefetched by the service worker.
 
 6. Use `createApolloURL(client, query, variables)` to create the URL to prefetch:
@@ -398,9 +398,9 @@ You can test that everything is running locally by running your project with:
 {{ CLI_NAME }} dev --cache
 ```
 
-### Advantages over Apollo's prefetch functionality
+### Advantages over Apollo's Prefetch Functionality
 
-[Apollo provides it's own ability to prefetch data.](https://www.apollographql.com/docs/react/performance/performance/) Prefetching using the method described above has a number of advantages:
+[Apollo](https://www.apollographql.com/docs/react/performance/performance/) provides it's own ability to prefetch data. Prefetching using the method described above has a number of advantages:
 
 - It minimizes the amount of data that needs to be transmitted in response to the initial request, making the page faster.
 - Prefetched data is held in the service worker cache so it can be used in the event that the user navigates away from your website and returns later.
