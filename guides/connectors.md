@@ -2,7 +2,7 @@
 
 Connector packages help build and run your app within {{ PRODUCT_NAME }}. When you run `{{ CLI_NAME }} init`, {{ PRODUCT_NAME }} CLI detects the framework used by your app and installs the corresponding connector package. For example, if you use Next.js, `{{ PACKAGE_NAME }}/next` will be installed. If no connector package exists for the framework that you use, you can still deploy to {{ PRODUCT_NAME }} by implementing the connector interface directly in your app.
 
-## Writing a connector
+## Writing a Connector
 
 A {{ PRODUCT_NAME }} connector consists of four entry points:
 
@@ -162,7 +162,7 @@ module.exports = {
 }
 ```
 
-## Testing your connector locally before publishing it to NPM
+## Testing your Connector Locally before Publishing it to NPM
 
 To test your connector locally without publishing it to NPM:
 
@@ -172,7 +172,7 @@ To test your connector locally without publishing it to NPM:
 
 Now `{{ CLI_NAME }} init`, `{{ CLI_NAME }} dev`, `{{ CLI_NAME }} build`, and `{{ CLI_NAME }} deploy` commands will use the entry points in the connector, and your `prod.js` entrypoint will be used to serve requests in the {{ PRODUCT_NAME }} cloud.
 
-## Implementing a connector directly within your project
+## Implementing a Connector Directly within your Project
 
 If your project uses a framework that isn't supported by one of the official connector packages, you can still deploy to {{ PRODUCT_NAME }} by implementing your own connector directly within your project. To do so:
 
