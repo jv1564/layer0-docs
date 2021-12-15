@@ -30,7 +30,7 @@ To purge responses via the REST API, see the [REST API reference](/guides/rest_a
 
 ## Deployments
 
-By default, all response are purged from the cache when you deploy a new version of your site. You can override this behavior using the _Preserve cache between deployments_ setting in your environment configuration:
+By default, all responses are purged from the cache when you deploy a new version of your site. You can override this behavior using the _Preserve cache between deployments_ setting in your environment configuration:
 
 ![preserve_cache](/images/purging/preserve.png)
 
@@ -74,7 +74,7 @@ Here are some ways that you can automate cache purging:
 
 Here is an example script you can add to your `package.json` to handle cache clearing for each environment. You can also configure scripts to clear by surrogate key, path, or group (As defined in {{ PRODUCT_NAME }} Console)
 
-These scripts assume that you have created environments called "production", "staging", and "development and you have created a deploy key for your site and added it as a secret in your repo called "{{ PRODUCT_NAME_LOWER }}\_deploy_token".
+These scripts assume that you have created environments called _production_, _staging_, and _development_ and you have created a deploy key for your site and added it as a secret in your repo called "{{ PRODUCT_NAME_LOWER }}\_deploy_token".
 
 ```js
   "scripts": {
@@ -95,7 +95,7 @@ Here is an example GitHub action that clears the cache at a scheduled time using
 ```yml
 # Add this file to your project at .github/workflows/clear-cache.yml
 #
-# This GitHub action clears the sites PRODUCTION cache at 09:15AM UTC every day.
+# This GitHub action clears the site's PRODUCTION cache at 09:15AM UTC every day.
 #
 # The schedule syntax is standard cron syntax
 # minute  hour  day-of-month  month day-of-week
