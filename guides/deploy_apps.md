@@ -16,15 +16,15 @@ Once the deployment is complete, the CLI will output the URL for your site. The 
 
 ## Branches and Deployments
 
-Each time you deploy your site to {{ PRODUCT_NAME }} a "deployment" is created and given a unique and permanent URL based on the team name, site name, branch name in source control, and an incrementing deployment number. If you use Git, the branch name is set by the default. If not, you can specify the `--branch` option when running `{{ CLI_NAME }} deploy`.
+Each time you deploy your site to {{ PRODUCT_NAME }} a _deployment_ is created and given a unique and permanent URL based on the team name, site name, branch name in source control, and an incrementing deployment number. If you use Git, the branch name is set by the default. If not, you can specify the `--branch` option when running `{{ CLI_NAME }} deploy`.
 
 ![deployments](/images/deploying/deployments.png)
 
-Having each deployment be simultaneously and permanently accessible makes it easy to preview other developers' work before merging a pull request and enables you to "go back in time" to find where a bug or change in behavior originated. We recommend configuring your CI environment to deploy every push to {{ PRODUCT_NAME }}.
+Having each deployment be simultaneously and permanently accessible makes it easy to preview other developers' work before merging a pull request and enables you to _go back in time_ to find where a bug or change in behavior originated. We recommend configuring your CI environment to deploy every push to {{ PRODUCT_NAME }}.
 
 ## Deploying from CI
 
-To deploy from your CI environment, create a deploy token using the site settings tab in the {{ PRODUCT_NAME }} console.
+To deploy from your CI environment, create a deploy token using the _SETTINGS_ tab in the {{ PRODUCT_NAME }} console.
 
 ![deployments](/images/deploying/token.png)
 
@@ -135,7 +135,7 @@ jobs:
           deploy_token: ${{secrets.LAYER0_DEPLOY_TOKEN}}
 ```
 
-### Screencast tutorial
+### Screencast Tutorial
 
 ![video](https://www.youtube.com/watch?v=Ms1TmY0oDYc)
 
